@@ -42,7 +42,7 @@ export const Leng = {
   },
   ES: {
     header: {
-      title: "Creemos una Asombroso Web Juntos",
+      title: "Creemos una Asombrosa Web Juntos",
     },
     menu: {
       login: "Iniciar Sesión",

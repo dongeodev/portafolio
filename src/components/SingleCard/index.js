@@ -40,7 +40,7 @@ export const SingleCard = ({ leng }) => {
         .container__item--medium {
           width: 250px;
           height: 56px;
-          margin-left: 46px;
+          margin-left: 41px;
           border-radius: 4px;
           background: linear-gradient(${colors.gradientRose});
           animation: 2s slice-linear;
@@ -49,7 +49,7 @@ export const SingleCard = ({ leng }) => {
         .container__item--small {
           width: 185px;
           height: 46px;
-          margin-left: 56px;
+          margin-left: 54px;
           border-radius: 4px;
           background: linear-gradient(${colors.gradientGrape});
           animation: 3s slice-linear;
@@ -77,7 +77,7 @@ export const SingleCard = ({ leng }) => {
           transform: translateX(-50px);
         }
         .container__item--big:hover .container__item--medium {
-          transform: translateX(180px);
+          transform: translateX(170px);
         }
         .container__item--medium:hover .container__item--small {
           transform: translateX(150px);

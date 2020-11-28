@@ -13,7 +13,7 @@ export const List = () => {
     {
       id: "cyccomputer",
       img: "/cycomputer.png",
-      link: "https://apppodcasts.herokuapp.com/",
+      link: "http://stage.cyccomputer.pe:8080/",
     },
     {
       id: "daymercell",

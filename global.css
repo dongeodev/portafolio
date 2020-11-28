@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+p,
+button {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+button {
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+  margin: 0 auto;
+  overscroll-behavior: none;
+  width: 100%;
+  max-width: 1600px;
+}
+
+#__next {
+  overflow-x: hidden;
+  min-height: 100vh;
+}

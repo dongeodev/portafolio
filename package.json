@@ -1,0 +1,26 @@
+{
+  "name": "dongeo",
+  "version": "1.0.0",
+  "description": "Un portafolio increible",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "Frontend",
+    "reactjs",
+    "nextjs"
+  ],
+  "author": "dongeodev",
+  "license": "MIT",
+  "dependencies": {
+    "intersection-observer": "^0.11.0",
+    "next": "^10.0.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^6.11.5",
+    "react-typical": "^0.1.3"
+  }
+}

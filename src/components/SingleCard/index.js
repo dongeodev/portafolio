@@ -49,7 +49,7 @@ export const SingleCard = ({ leng }) => {
         .container__item--small {
           width: 185px;
           height: 46px;
-          margin-left: 52px;
+          margin-left: 51px;
           border-radius: 4px;
           background: linear-gradient(${colors.gradientGrape});
           animation: 3s slice-linear;

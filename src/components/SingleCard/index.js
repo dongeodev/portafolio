@@ -5,7 +5,7 @@ import ThemeContext from "ThemeContext";
 export const SingleCard = ({ leng }) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { colors } = theme;
-  const { be, prof, margin } = leng;
+  const { be, prof, marginBig, marginMedium } = leng;
   return (
     <>
       <div className="container container__item--big">
@@ -40,7 +40,7 @@ export const SingleCard = ({ leng }) => {
         .container__item--medium {
           width: 250px;
           height: 56px;
-          margin-left: 41px;
+          margin-left: ${marginMedium - 2}px;
           border-radius: 4px;
           background: linear-gradient(${colors.gradientRose});
           animation: 2s slice-linear;
@@ -49,7 +49,7 @@ export const SingleCard = ({ leng }) => {
         .container__item--small {
           width: 185px;
           height: 46px;
-          margin-left: 50px;
+          margin-left: 55px;
           border-radius: 4px;
           background: linear-gradient(${colors.gradientGrape});
           animation: 3s slice-linear;
@@ -58,8 +58,8 @@ export const SingleCard = ({ leng }) => {
           position: absolute;
         }
         .container__item--big > label {
-          margin-left: ${margin};
-          letter-spacing: 4px;
+          margin-left: ${marginBig};
+          letter-spacing: 1px;
         }
         .container__item--big > label > span {
           margin-right: 8px;
@@ -74,10 +74,10 @@ export const SingleCard = ({ leng }) => {
           letter-spacing: normal;
         }
         .container__item--big:hover {
-          transform: translateX(-50px);
+          transform: translateX(-52px);
         }
         .container__item--big:hover .container__item--medium {
-          transform: translateX(170px);
+          transform: translateX(175px);
         }
         .container__item--medium:hover .container__item--small {
           transform: translateX(150px);
@@ -119,6 +119,7 @@ export const SingleCard = ({ leng }) => {
           .container__item--medium {
             width: 518px;
             height: 66px;
+            margin-left: ${marginMedium};
           }
 
           .container__item--small {
@@ -126,11 +127,11 @@ export const SingleCard = ({ leng }) => {
             height: 56px;
             margin-left: 63px;
           }
+          .container__item--big > label {
+            margin-left: ${marginBig};
+          }
           .container {
             font-size: 2.8rem;
-          }
-          .container__item--big:hover > label {
-            letter-spacing: normal;
           }
           .container__item--big:hover .container__item--medium {
             transform: translateX(220px);

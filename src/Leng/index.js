@@ -10,7 +10,8 @@ export const Leng = {
     singleCard: {
       be: "I am Developer",
       prof: "am Frontend",
-      margin: "23px",
+      marginBig: "23px",
+      marginMedium: "40",
     },
     hero: {
       reason: "Reasons",
@@ -51,7 +52,8 @@ export const Leng = {
     singleCard: {
       be: "Yo soy Dev",
       prof: "soy Frontend",
-      margin: "8px",
+      marginBig: "10px",
+      marginMedium: "50",
     },
     hero: {
       reason: "Razones para",

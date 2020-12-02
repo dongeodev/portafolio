@@ -46,7 +46,7 @@ export const HeaderAboutMe = () => {
           z-index: -1;
         }
         h1 {
-          max-width: 219px;
+          max-width: 300px;
           margin-top: 40px;
           margin-left: 20px;
           font-size: 2.8rem;

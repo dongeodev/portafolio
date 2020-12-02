@@ -28,7 +28,7 @@ export const Menu = ({ setTheme, setLeng, leng, themeCurrent }) => {
             <ul>
               <li className="disable">{login}</li>
               <li>
-                <Link href="/kownme">
+                <Link href="/knowme">
                   <a>{knowme}</a>
                 </Link>
               </li>

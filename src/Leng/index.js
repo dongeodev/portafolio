@@ -110,7 +110,7 @@ export const Leng = {
       title2: "Una Opinión",
 
       content:
-        "Una de las ventajas de ser ingeniero no Radica en el titulo en si mismo sino en la capacidad para aprender, el pensamiento estructurado y la busqueda de la optimizacion que nos da la academia. A mi opinion hoy dia el professional no debe saber todo ya que el universo de tecnologias crece a un ritmo muy rapido, pero si debe ser capaz de estar dispuesto a aprender todos los dias. Profesionalmente me gustan los retos, buscar ese factor diferenciador, ser creative y cuidar los detalles, trabajando en equipo.",
+        "Una de las ventajas de ser ingeniero no Radica en el titulo en si mismo sino en la capacidad para aprender, el pensamiento estructurado y la busqueda de la optimizacion que nos da la academia. A mi opinion hoy dia el professional no debe saber todo ya que el universo de tecnologias crece a un ritmo muy rapido, pero si debe ser capaz de estar dispuesto a aprender todos los dias. Profesionalmente me gustan los retos, buscar ese factor diferenciador, ser creativo y cuidar los detalles trabajando en equipo.",
     },
   },
 };

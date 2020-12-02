@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Menu } from "components/Menu";
 import { useContext } from "react";
 import ThemeContext from "ThemeContext";
@@ -7,11 +8,21 @@ export const HeaderAboutMe = () => {
   const { leng, setLeng } = useContext(LengContext);
   const { theme, setTheme } = useContext(ThemeContext);
   const { colors } = theme;
-
+  const { flagLight } = colors;
   return (
     <>
       <header>
-        <Menu setTheme={setTheme} leng={leng.menu} setLeng={setLeng} />
+        <Link href="/">
+          <a title="to home">
+            <span></span>
+          </a>
+        </Link>
+        <Menu
+          setTheme={setTheme}
+          leng={leng.menu}
+          setLeng={setLeng}
+          themeCurrent={flagLight}
+        />
         <div className="hero--background"></div>
         <h1>Frontend React JS</h1>
         <h2>Georgie Duarte</h2>
@@ -50,7 +61,26 @@ export const HeaderAboutMe = () => {
           font-weight: 400;
           color: ${colors.white};
         }
-
+        span {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          width: 25px;
+          height: 20px;
+          background-image: url("/arrowback.svg");
+          background-size: 15px;
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
+          transition: 0.2s;
+          border-radius: 4px;
+        }
+        span:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        span:active {
+          transform: scale(0.9);
+        }
         @media (min-width: 375px) {
           h1 {
             max-width: 300px;
@@ -72,6 +102,11 @@ export const HeaderAboutMe = () => {
           h2 {
             max-width: 350px;
             margin-left: 90px;
+          }
+          span {
+            width: 30px;
+            height: 25px;
+            background-size: 20px;
           }
         }
         @media (min-width: 1200px) {

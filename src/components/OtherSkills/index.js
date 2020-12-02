@@ -4,6 +4,7 @@ import { Resumen } from "components/Resumen";
 import { Title } from "components/Title";
 import ThemeContext from "ThemeContext";
 import LengContext from "LengContext";
+import useNearScreen from "Hooks/useNearScreen";
 
 export const OtherSkills = () => {
   const { leng } = useContext(LengContext);
@@ -80,22 +81,30 @@ export const OtherSkills = () => {
       image: "/othersCourses/arduino.png",
     },
   ];
+  const { isNearScreen, fromRef } = useNearScreen("50px");
   return (
     <>
-      <section>
-        <div className="container__title-skills">
-          <Title text={otherSkills.title} />
-        </div>
-        <Courses data={courses} />
-        <Resumen data={skills} colors={colors} resume={resume} />
-        <div className="container__title-skills">
-          <Title text={otherSkills.title2} />
-        </div>
-        <p>{otherSkills.content}</p>
+      <section ref={fromRef}>
+        {isNearScreen && (
+          <div className="container">
+            <div className="container__title-skills">
+              <Title text={otherSkills.title} />
+            </div>
+            <Courses data={courses} />
+            <Resumen data={skills} colors={colors} resume={resume} />
+            <div className="container__title-skills">
+              <Title text={otherSkills.title2} />
+            </div>
+            <p>{otherSkills.content}</p>
+          </div>
+        )}
       </section>
       <style jsx>{`
         section {
           margin-top: 30px;
+        }
+        .container {
+          animation: ascend 0.5s;
         }
         .container__title-skills {
           display: flex;
@@ -113,6 +122,17 @@ export const OtherSkills = () => {
           max-width: 300px;
           width: 100%;
           color: ${colors.blue};
+        }
+
+        @keyframes ascend {
+          0% {
+            transform: translateY(100px);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0px);
+            opacity: 1;
+          }
         }
         @media (min-width: 768px) {
           section {

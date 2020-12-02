@@ -5,7 +5,8 @@ export const Leng = {
     },
     menu: {
       login: "Login",
-      kownme: "Kown me",
+      knowme: "Know me",
+      lang: "ES",
     },
     singleCard: {
       be: "I am Developer",
@@ -35,6 +36,7 @@ export const Leng = {
       contact: "Contact",
       download: "Downloads",
       dowdloadCV: "Download CV",
+      study: "Study at Platzi",
       social: "Social Media",
       verse:
         "Commit your way to the Lord, Trust also in Him, And He shall bring it to pass.",
@@ -43,15 +45,15 @@ export const Leng = {
     heroAboutMe: {
       title: "About me",
       content:
-        "I studied engineering attracted by electronics and my first programs in assembler for microcontrollers. Always oriented towards programming, I specialized in systems and automation, I worked for a time in hardware design and programming (microcontrollers, Arduino, etc.) always on the lookout for the latest technology and the IoT arrived and this required one more layer of software that would allow connect a PC or a Smartphone to that control hardware. So I entered the universe of web development I met the frontend and as my favorite activity is studying…   ",
+        "I studied engineering attracted by electronics and my first programs in microcontroller assembler. Always oriented to programming, I specialized in systems and automation, I worked for a time in hardware design and programming (microcontrollers, Arduino, etc.) always in search of the latest technology and the IoT arrived and this required one more layer of software than it would allow to connect a PC or a Smartphone to that control hardware. Then I entered the universe of web development I knew the frontend and as my favorite activity is studying ...",
       button: "Click to show",
     },
     resume: "Resume",
     otherSkills: {
       title: "Others Courses",
-      title2: "An Opinion",
+      title2: "An opinion",
       content:
-        "One of the advantages of being an engineer does not lie in the degree itself but in the ability to learn, structured thinking and the search for optimization that the academy gives us. In my opinion, today the professional should not know everything since the universe of technologies grows at a very fast rate, but he should be able to be willing to learn every day. Professionally, I like challenges, looking for that differentiating factor, being creative and taking care of details, working as a team.",
+        "One of the advantages of being an engineer does not lie in the degree itself but in the ability to learn, structured thinking and the search for optimization that the academy gives us. In my opinion, today the professional should not know everything since the universe of technologies grows at a very fast rate, but he should be able to be willing to learn every day. Professionally, I like challenges, looking for that differentiating factor, being creative and taking care of details working as a team.",
     },
   },
   ES: {
@@ -60,7 +62,8 @@ export const Leng = {
     },
     menu: {
       login: "Iniciar Sesión",
-      kownme: "Conóceme",
+      knowme: "Conóceme",
+      lang: "EN",
     },
     singleCard: {
       be: "Yo soy Dev",
@@ -90,12 +93,13 @@ export const Leng = {
       contact: "Contacto",
       download: "Descargas",
       dowdloadCV: "Descarga CV",
+      study: "Estudia en Platzi",
       social: "Redes Sociales",
       verse: "Encomienda a Jehová tu camino, Y confía en él; y él hará.",
       right: "@2020 DonGeo. Derechos Reservados.",
     },
     heroAboutMe: {
-      title: "Un poco sobre mi",
+      title: "Acerca de mí",
       content:
         "Estudie ingeniería atraído por la electrónica y mis primeros programas en assembler para microcontroladores. Siempre orientado hacia la programación me especialicé en sistemas y automática, trabaje un tiempo en diseño y programación de hardware (microcontroladores, Arduino, etc.) siempre al pendiente de la última tecnología y llego el IoT y esto exigía una capa más de software que permitiera conectar un PC o un Smartphone a ese hardware de control. Así entre al universo del desarrollo web conocí el frontend  y como mi actividad favorita es estudiar…   ",
       button: "Click para mostrar",
@@ -103,7 +107,7 @@ export const Leng = {
     resume: "Resumen",
     otherSkills: {
       title: "Otros Cursos",
-      title2: "Una Opinion",
+      title2: "Una Opinión",
 
       content:
         "Una de las ventajas de ser ingeniero no Radica en el titulo en si mismo sino en la capacidad para aprender, el pensamiento estructurado y la busqueda de la optimizacion que nos da la academia. A mi opinion hoy dia el professional no debe saber todo ya que el universo de tecnologias crece a un ritmo muy rapido, pero si debe ser capaz de estar dispuesto a aprender todos los dias. Profesionalmente me gustan los retos, buscar ese factor diferenciador, ser creative y cuidar los detalles, trabajando en equipo.",

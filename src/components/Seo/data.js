@@ -3,3 +3,8 @@ export const seo = {
   siteTitle: "Home",
   description: "El sitio web de un desarrollador frontend",
 };
+export const knowMe = {
+  title: "DonGeo",
+  siteTitle: "Know Me",
+  description: "Conoce mis habilidades frontend",
+};

@@ -20,6 +20,7 @@ export const themes = {
       sea: "/sea.png",
       seaMedium: "/sea_medium.png",
       seaLarge: "/sea_large.png",
+      flagLight: true,
     },
   },
   dark: {
@@ -44,6 +45,7 @@ export const themes = {
       sea: "/seadark.png",
       seaMedium: "/seadark_medium.png",
       seaLarge: "/seadark_large.png",
+      flagLight: false,
     },
   },
 };

@@ -74,8 +74,8 @@ export const CardReview = ({ id }) => {
       <article>
         <img src="/avatar.jpg" alt="foto de perfil" />
         <div>
-          <h3>Dan Abramov</h3>
-          <p>Excellent Dev, I wanna work with him</p>
+          <h3>Commig Soon</h3>
+          <p>Working on this feature 🤣</p>
         </div>
       </article>
       <style jsx>{`

@@ -5,6 +5,7 @@ import LengContext from "LengContext";
 import { Button } from "components/Button";
 import { Courses } from "components/Courses";
 import { Resumen } from "components/Resumen";
+
 export const HeroAboutMe = () => {
   const { leng } = useContext(LengContext);
   const { heroAboutMe, resume } = leng;
@@ -183,7 +184,21 @@ export const HeroAboutMe = () => {
         {open && <Courses data={courses} />}
         <Resumen data={skills} colors={colors} resume={resume} />
       </main>
+
       <style jsx>{`
+        main {
+          animation: ascend 0.5s;
+        }
+        @keyframes ascend {
+          0% {
+            transform: translateY(100px);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+        }
         section {
           display: flex;
           flex-direction: column;
@@ -191,7 +206,7 @@ export const HeroAboutMe = () => {
           margin: 50px auto 30px auto;
         }
         p {
-          margin-top: 50px;
+          margin-top: 30px;
           margin-bottom: 20px;
           font-size: 1.6rem;
           font-family: "Source Code Pro", monospace;

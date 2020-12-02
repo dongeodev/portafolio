@@ -10,11 +10,17 @@ export const Header = () => {
   const { leng, setLeng } = useContext(LengContext);
   const { theme, setTheme } = useContext(ThemeContext);
   const { colors } = theme;
+  const { flagLight } = colors;
   const { header } = leng;
   return (
     <>
       <header>
-        <Menu setTheme={setTheme} leng={leng.menu} setLeng={setLeng} />
+        <Menu
+          setTheme={setTheme}
+          leng={leng.menu}
+          setLeng={setLeng}
+          themeCurrent={flagLight}
+        />
         <div className="hero--background"></div>
         <h1>{header.title}</h1>
         <div className="container--single-card">

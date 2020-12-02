@@ -1,22 +1,20 @@
+import Link from "next/link";
 import { Leng } from "Leng";
 import { useState } from "react";
 import { colors, themes } from "styles";
 
-export const Menu = ({ setTheme, setLeng, leng }) => {
+export const Menu = ({ setTheme, setLeng, leng, themeCurrent }) => {
   const [open, setOpen] = useState(false);
-  const [mode, setMode] = useState(false);
-  const [lenguage, setLenguague] = useState(false);
-  const { login, kownme } = leng;
+
+  const { login, knowme, lang } = leng;
   const handleClick = () => {
     setOpen(!open);
   };
   const handleTheme = () => {
-    !mode ? setTheme(themes.dark) : setTheme(themes.light);
-    setMode(!mode);
+    themeCurrent ? setTheme(themes.dark) : setTheme(themes.light);
   };
   const handleLeng = () => {
-    !lenguage ? setLeng(Leng.ES) : setLeng(Leng.EN);
-    setLenguague(!lenguage);
+    knowme === "Conóceme" ? setLeng(Leng.EN) : setLeng(Leng.ES);
   };
 
   return (
@@ -28,15 +26,19 @@ export const Menu = ({ setTheme, setLeng, leng }) => {
         <>
           <nav className="menu-horizontal">
             <ul>
-              <li>{login}</li>
-              <li>{kownme}</li>
-              <li>Blog</li>
+              <li className="disable">{login}</li>
+              <li>
+                <Link href="/kownme">
+                  <a>{knowme}</a>
+                </Link>
+              </li>
+              <li className="disable">Blog</li>
             </ul>
           </nav>
           <nav className="menu-vertical">
             <ul>
-              <li onClick={handleLeng}>{lenguage ? "EN" : "ES"}</li>
-              <li onClick={handleTheme}>{mode ? "🌞" : "🌙"}</li>
+              <li onClick={handleLeng}>{lang}</li>
+              <li onClick={handleTheme}>{!themeCurrent ? "🌞" : "🌙"}</li>
             </ul>
           </nav>
         </>
@@ -89,6 +91,13 @@ export const Menu = ({ setTheme, setLeng, leng }) => {
           font-weight: 400;
           color: ${colors.white};
           cursor: pointer;
+        }
+        a {
+          color: ${colors.white};
+          text-decoration: none;
+        }
+        .menu-horizontal ul .disable {
+          color: ${colors.gray};
         }
         @media (min-width: 1200px) {
           picture {

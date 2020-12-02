@@ -25,6 +25,10 @@ export const Footer = () => {
                 text={footer.dowdloadCV}
                 link="https://drive.google.com/file/d/1Y03xvbGhUpZj--SZsSFGqdVZUZDWQoTC/view?usp=sharing"
               />
+              <ListItem
+                text={footer.study}
+                link="https://platzi.com/r/dongeodev/"
+              />
             </DropDown>
           </div>
           <div className="footer__social">

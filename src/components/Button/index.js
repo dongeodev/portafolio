@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import ThemeContext from "ThemeContext";
 
-export const Button = ({ text = "Go Swing" }) => {
+export const Button = ({ text = "Go Swing", width, handleClick }) => {
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
   return (
     <>
-      <button>{text}</button>
+      <button onClick={handleClick}>{text}</button>
       <style jsx>{`
         button {
-          max-width: 90px;
+          max-width: ${width || "90px"};
           width: 100%;
           height: 40px;
           box-shadow: inset 0 -4px rgba(0, 0, 0, 0.2);

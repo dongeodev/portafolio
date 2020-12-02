@@ -8,7 +8,7 @@ import LengContext from "LengContext";
 export const Footer = () => {
   const { leng } = useContext(LengContext);
   const { footer } = leng;
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { colors } = theme;
   return (
     <>

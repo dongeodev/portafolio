@@ -7,7 +7,7 @@ import { Typing } from "components/Typing";
 export const Hero = () => {
   const { leng } = useContext(LengContext);
   const { hero } = leng;
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { colors } = theme;
 
   return (

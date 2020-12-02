@@ -71,8 +71,10 @@ export const Header = () => {
           }
         }
         @media (min-width: 1200px) {
-          section {
+           {
+            /* header {
             height: 400px;
+          } */
           }
           .hero--background {
             height: 400px;

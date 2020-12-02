@@ -1,8 +1,16 @@
 // import App from 'next/app'
+import { ThemeContextProvider } from "ThemeContext";
+import { LengContextProvider } from "LengContext";
 import "../global.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <LengContextProvider>
+      <ThemeContextProvider>
+        <Component {...pageProps} />
+      </ThemeContextProvider>
+    </LengContextProvider>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

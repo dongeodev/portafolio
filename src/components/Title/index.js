@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ThemeContext from "ThemeContext";
 export const Title = ({ text }) => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { colors } = theme;
   return (
     <>

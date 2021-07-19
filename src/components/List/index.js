@@ -53,7 +53,7 @@ export const List = () => {
   const handleNext = (e) => {
     element.current.scrollLeft += 284;
   };
-  console.log(isNearScreen);
+
   return (
     <>
       <div className="container__title-skills">
@@ -66,7 +66,7 @@ export const List = () => {
               <ArrowButton />
             </div>
             <article className="container__cards" ref={element}>
-              {Object.keys(data).map((item) => (
+              {data.map((item) => (
                 <div className="container__card" key={item.id}>
                   <Card img={item.img} link={item.link} id={item.id} />
                 </div>

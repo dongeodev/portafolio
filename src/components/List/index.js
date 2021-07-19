@@ -11,11 +11,6 @@ export const List = () => {
   const { projects } = leng;
   const data = [
     {
-      id: "cyccomputer",
-      img: "/cycomputer.png",
-      link: "http://stage.cyccomputer.pe:8080/",
-    },
-    {
       id: "daymercell",
       img: "/daymercell.png",
       link: "https://daymercell.netlify.app/",
@@ -71,7 +66,7 @@ export const List = () => {
               <ArrowButton />
             </div>
             <article className="container__cards" ref={element}>
-              {data.map((item) => (
+              {Object.keys(data).map((item) => (
                 <div className="container__card" key={item.id}>
                   <Card img={item.img} link={item.link} id={item.id} />
                 </div>
@@ -83,7 +78,7 @@ export const List = () => {
           </div>
         )}
       </section>
-      }
+
       <style jsx>{`
         .container__title-skills {
           display: flex;

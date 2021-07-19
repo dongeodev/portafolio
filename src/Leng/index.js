@@ -40,7 +40,7 @@ export const Leng = {
       social: "Social Media",
       verse:
         "Commit your way to the Lord, Trust also in Him, And He shall bring it to pass.",
-      right: "@2020 DonGeo. Copy right.",
+      right: "@2021 DonGeo. Copy right.",
     },
     heroAboutMe: {
       title: "About me",

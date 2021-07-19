@@ -23,7 +23,7 @@ export const Footer = () => {
             <DropDown title={footer.download}>
               <ListItem
                 text={footer.dowdloadCV}
-                link="https://drive.google.com/file/d/1Y03xvbGhUpZj--SZsSFGqdVZUZDWQoTC/view?usp=sharing"
+                link="https://drive.google.com/file/d/1a2kovi4t8EUvzg_Vm9qgw4Of-ICiS7G-/view?usp=sharing"
               />
               <ListItem
                 text={footer.study}

@@ -10,9 +10,9 @@ export const UList = () => {
           <span>dongeodev@gmail.com</span>
         </li>
         <li>
-          <a href="https://wa.link/t7pphx" target="_blank">
+          <a href="https://wa.link/dw9zeh" target="_blank">
             <img src="/phone.svg" alt="icon phone" />
-            <span>+57 314 487 74 07</span>
+            <span>+57 302 575 54 61</span>
           </a>
         </li>
       </ul>

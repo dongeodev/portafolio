@@ -1,24 +1,40 @@
 import { Button } from "components/Button";
 import { SMButton } from "components/SMButton";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import ThemeContext from "ThemeContext";
 import LengContext from "LengContext";
+import { loginWithGitHub, onAuthStateChanged } from "../../../firebase/client";
 
 export const FormReview = () => {
   const { leng } = useContext(LengContext);
   const { form } = leng;
   const { theme, setTheme } = useContext(ThemeContext);
   const { colors } = theme;
-  const [isLogin, setIsLogin] = useState(false);
+
+  const [user, setUser] = useState(null);
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => {};
+  useEffect(() => {
+    onAuthStateChanged(setUser);
+  }, []);
+  console.log(user);
 
+  const handleClick = () => {
+    loginWithGitHub()
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <div className="container__form">
-        <p>{form.title}</p>
-        {isLogin ? (
+        {user && <p className="username">{`${form.hi}, ${user.username}`}</p>}
+        <label htmlFor="review">{form.title}</label>
+        {user ? (
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <textarea
@@ -26,12 +42,34 @@ export const FormReview = () => {
                 name="review"
                 ref={register({ required: true, minLength: 35 })}
               />
-              {errors.review && <span>This field is required</span>}
+              {errors.review && watch.review && (
+                <span>This field is required</span>
+              )}
+              <div className="container__radio-button">
+                <input type="radio" name="type" />
+                <label htmlFor="type">👍</label>
+              </div>
+              <div className="container__radio-button">
+                <input type="radio" name="type" />
+                <label htmlFor="type">👎</label>
+              </div>
             </div>
             <Button text={form.swing} />
           </form>
         ) : (
-          <SMButton />
+          <div className="container--buttons">
+            <SMButton
+              handleClick={handleClick}
+              text={form.googleButton}
+              img={"/ic_gmail.svg"}
+            />
+            <SMButton
+              handleClick={handleClick}
+              text={form.gitHubButton}
+              img={"/ic_github.svg"}
+              background="#000"
+            />
+          </div>
         )}
       </div>
 
@@ -41,7 +79,11 @@ export const FormReview = () => {
           width: 100%;
           margin: 0 auto;
         }
-        p {
+        .username {
+          font-size: 1.8rem;
+          margin-bottom: 4px;
+        }
+        label {
           font-size: 1.4rem;
           font-weight: 600;
           margin-bottom: 14px;
@@ -59,6 +101,16 @@ export const FormReview = () => {
           border-radius: 4px;
           padding: 5px 10px;
           margin-right: 10px;
+        }
+        .container--buttons {
+          display: flex;
+          flex-direction: column;
+        }
+        .container--buttons > :global(button) {
+          margin-bottom: 8px;
+        }
+        .container__radio-button {
+          display: inline;
         }
         @media (min-width: 768px) {
           .container__form {
@@ -89,7 +141,12 @@ export const FormReview = () => {
           p {
             font-size: 1.8rem;
           }
-
+          .container--buttons {
+            flex-direction: row;
+          }
+          .container--buttons > :global(button) {
+            margin-right: 8px;
+          }
           .container__form {
             max-width: 1105px;
             margin: 0 auto;
@@ -97,7 +154,8 @@ export const FormReview = () => {
         }
       `}</style>
       <style jsx>{`
-        p {
+        p,
+        label {
           color: ${colors.blue};
         }
 

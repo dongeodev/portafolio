@@ -29,8 +29,11 @@ export const Leng = {
     projects: "Projects",
     pool: "Pool Review",
     form: {
+      hi: "Hello",
       title: "If you know my work give me a review",
       swing: "Go Swing",
+      googleButton: "Login with Google",
+      gitHubButton: "Login with GitHub",
     },
     footer: {
       contact: "Contact",
@@ -86,8 +89,11 @@ export const Leng = {
     projects: "Proyectos",
     pool: "Piscina de Calificaciones",
     form: {
+      hi: "Hola",
       title: "Si conoces mi trabajo dame una Calificacion",
       swing: "A Nadar",
+      googleButton: "Iniciar sesion con Google",
+      gitHubButton: "Iniciar sesion con GitHub",
     },
     footer: {
       contact: "Contacto",

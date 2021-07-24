@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import ThemeContext from "ThemeContext";
 
-export const Button = ({ text = "Go Swing", width, handleClick }) => {
+export const Button = ({
+  text = "Go Swing",
+  width,
+  handleClick,
+  type,
+  disabled,
+}) => {
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
   return (
     <>
-      <button onClick={handleClick}>{text}</button>
+      <button onClick={handleClick} type={type} disabled={disabled}>
+        {text}
+      </button>
       <style jsx>{`
         button {
           max-width: ${width || "90px"};
@@ -22,6 +30,7 @@ export const Button = ({ text = "Go Swing", width, handleClick }) => {
           transform: scale(0.95);
         }
         button:disabled {
+          pointer-events: none;
         }
         @media (min-width: 768px) {
           button {

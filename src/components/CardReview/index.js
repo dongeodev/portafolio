@@ -1,128 +1,77 @@
 import { useContext } from "react";
-import ThemeContext from "ThemeContext";
-import LengContext from "LengContext";
 
-export const CardReview = ({ id }) => {
+import LengContext from "LengContext";
+import Avatar from "components/Avatar";
+
+export const CardReview = ({
+  userName,
+  avatar,
+  content,
+  userId,
+  id,
+  type,
+  createAt,
+  colors,
+}) => {
   const { leng } = useContext(LengContext);
   // const { pool } = leng;
-  const { theme } = useContext(ThemeContext);
-  const { colors } = theme;
-  if (id == "br1") {
-    return (
-      <>
-        <article>
-          <img src="/avatar.jpg" alt="foto de perfil" />
-          <div>
-            <h3>Tu Corazón</h3>
-            <p>Esta buscando la maldad</p>
-          </div>
-        </article>
-        <style jsx>{`
-          article {
-            display: flex;
-            width: 220px;
-            min-height: 45px;
-            background: ${colors.rose};
-            padding: 6px 8px;
-            border-radius: 4px;
-            justify-content: center;
-            margin: 0 auto;
-          }
-          img {
-            width: 30px;
-            height: 30px;
-            margin-right: 5px;
-            object-fit: cover;
-            border-radius: 50%;
-          }
 
-          h3 {
-            max-width: 170px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: ${colors.blue};
-          }
-          p {
-            max-width: 170px;
-            font-family: "Source Code Pro", monospace;
-            font-size: 1rem;
-            color: ${colors.white};
-          }
-          @media (min-width: 768px) {
-            article {
-              width: 320px;
-            }
-            img {
-              margin-right: 20px;
-            }
-            h3 {
-              max-width: 250px;
-              font-size: 1.8rem;
-            }
-            p {
-              max-width: 250px;
-
-              font-size: 1.6rem;
-            }
-          }
-        `}</style>
-      </>
-    );
-  }
   return (
     <>
       <article>
-        <img src="/avatar.jpg" alt="foto de perfil" />
+        <Avatar userName={userName} img={avatar} colors={colors} />
         <div>
-          <h3>Commig Soon</h3>
-          <p>Working on this feature 🤣</p>
+          <h3>{userName}</h3>
+          <span>{createAt}</span>
+          <p>{content}</p>
         </div>
       </article>
       <style jsx>{`
         article {
           display: flex;
-          width: 220px;
+          width: 300px;
           min-height: 45px;
-          background: ${colors.sun};
-          padding: 6px 8px;
-          border-radius: 4px;
+          height: fit-content;
           justify-content: center;
+          padding: 10px 8px;
+          border-radius: 4px;
+          background: ${type === "good" ? colors.sun : colors.rose};
           margin: 0 auto;
         }
-        img {
-          width: 30px;
-          height: 30px;
-          margin-right: 5px;
-          object-fit: cover;
-          border-radius: 50%;
+        div {
+          margin-left: 8px;
         }
         h3 {
-          max-width: 170px;
-          font-size: 1.2rem;
+          display: inline-block;
+          margin-right: 8px;
+          margin-bottom: 4px;
+          font-size: 1.5rem;
           font-weight: 600;
-          color: ${colors.blue};
+          color: ${type === "good" ? colors.blue : colors.white};
+        }
+        span {
+          font-size: 1.2rem;
+          color: ${colors.gray};
+          width: fit-content;
+          height: fit-content;
         }
         p {
-          max-width: 170px;
-          font-family: "Source Code Pro", monospace;
-          font-size: 1rem;
-          color: ${colors.white};
+          max-width: 100%;
+          font-size: 1.4rem;
+          color: ${colors.blue};
         }
         @media (min-width: 768px) {
           article {
             width: 320px;
             justify-content: center;
-            margin: 0 auto;
           }
           img {
             margin-right: 20px;
           }
           h3 {
-            max-width: 250px;
             font-size: 1.6rem;
           }
           p {
-            max-width: 250px;
             font-size: 1.4rem;
           }
         }

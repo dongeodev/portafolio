@@ -22,7 +22,7 @@ export const DropDown = ({ title, children }) => {
           font-size: 1.6rem;
           font-weight: 600;
           color: ${colors.white};
-          margin-right: 10px;
+          margin-right: 4px;
           border-bottom: 2px solid ${colors.sun};
         }
         div > img {

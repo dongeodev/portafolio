@@ -4,21 +4,44 @@ import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import ThemeContext from "ThemeContext";
 import LengContext from "LengContext";
-import { loginWithGitHub, onAuthStateChanged } from "../../../firebase/client";
+import { addReview, loginWithGitHub } from "../../../firebase/client";
 
-export const FormReview = () => {
+export const FormReview = ({ user }) => {
+  const COMPOSE_STATES = {
+    USER_NOT_KNOWN: 0,
+    LOADING: 1,
+    SUCCESS: 2,
+    ERROR: -1,
+  };
   const { leng } = useContext(LengContext);
   const { form } = leng;
   const { theme, setTheme } = useContext(ThemeContext);
   const { colors } = theme;
 
-  const [user, setUser] = useState(null);
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => {};
-  useEffect(() => {
-    onAuthStateChanged(setUser);
-  }, []);
-  console.log(user);
+  const [status, setStatus] = useState(COMPOSE_STATES.USER_NOT_KNOWN);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      type: "good",
+    },
+    mode: "onBlur",
+  });
+  const onSubmit = ({ review, type }) => {
+    setStatus(COMPOSE_STATES.LOADING);
+    addReview({
+      avatar: user.avatar,
+      userId: user.uid,
+      userName: user.userName,
+      content: review,
+      type: type,
+    })
+      .then(setStatus(COMPOSE_STATES.SUCCESS))
+      .catch((err) => console.log(err));
+  };
 
   const handleClick = () => {
     loginWithGitHub()
@@ -29,32 +52,40 @@ export const FormReview = () => {
         console.log(err);
       });
   };
+  const isDisabled = errors.review || status === COMPOSE_STATES.LOADING;
+  // console.log(user);
   return (
     <>
       <div className="container__form">
-        {user && <p className="username">{`${form.hi}, ${user.username}`}</p>}
+        {user && <p className="username">{`${form.hi}, ${user.userName}`}</p>}
         <label htmlFor="review">{form.title}</label>
         {user ? (
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <textarea
-                type="text"
-                name="review"
-                ref={register({ required: true, minLength: 35 })}
+                {...register("review", { required: true, minLength: 10 })}
               />
-              {errors.review && watch.review && (
-                <span>This field is required</span>
+              {(errors.review?.type === "required" || watch.review) && (
+                <div>
+                  <span>This field is required</span>
+                </div>
               )}
+              {errors.review?.type === "minLength" && (
+                <div>
+                  <span>Come on! Give me more</span>
+                </div>
+              )}
+
               <div className="container__radio-button">
-                <input type="radio" name="type" />
+                <input type="radio" {...register("type")} value="good" />
                 <label htmlFor="type">👍</label>
               </div>
               <div className="container__radio-button">
-                <input type="radio" name="type" />
+                <input type="radio" {...register("type")} value="bad" />
                 <label htmlFor="type">👎</label>
               </div>
             </div>
-            <Button text={form.swing} />
+            <Button text={form.swing} type="submit" disabled={isDisabled} />
           </form>
         ) : (
           <div className="container--buttons">
@@ -84,9 +115,10 @@ export const FormReview = () => {
           margin-bottom: 4px;
         }
         label {
+          display: inline-block;
           font-size: 1.4rem;
           font-weight: 600;
-          margin-bottom: 14px;
+          margin-bottom: 4px;
         }
         form {
           display: flex;
@@ -95,12 +127,20 @@ export const FormReview = () => {
           max-width: 190px;
           width: 100%;
         }
+        .container--errors {
+          display: flex;
+          flex-direction: column;
+        }
         textarea {
           width: 95%;
-          height: 40px;
+          height: 75px;
           border-radius: 4px;
           padding: 5px 10px;
           margin-right: 10px;
+        }
+        span {
+          display: inline-block;
+          margin-bottom: 4px;
         }
         .container--buttons {
           display: flex;
@@ -128,7 +168,6 @@ export const FormReview = () => {
             width: 100%;
           }
           textarea {
-            height: 48px;
             border-radius: 4px;
             padding: 5px 10px;
             margin-right: 10px;
@@ -161,7 +200,7 @@ export const FormReview = () => {
 
         textarea {
           border: 1px solid ${colors.gray};
-          color: ${colors.white};
+          color: ${colors.blue};
           background: ${colors.body};
         }
         span {

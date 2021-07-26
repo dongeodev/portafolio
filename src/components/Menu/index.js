@@ -1,9 +1,18 @@
 import Link from "next/link";
 import { Leng } from "Leng";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { colors, themes } from "styles";
 
 export const Menu = ({ setTheme, setLeng, leng, themeCurrent }) => {
+  useEffect(() => {
+    let language = null;
+    if (typeof window !== "undefined") {
+      // browser code
+      language = window.navigator.language;
+    }
+    const initLang = language && language.includes("en");
+    !initLang && setLeng(Leng.ES);
+  }, []);
   const [open, setOpen] = useState(false);
 
   const { login, knowme, lang } = leng;
@@ -12,9 +21,11 @@ export const Menu = ({ setTheme, setLeng, leng, themeCurrent }) => {
   };
   const handleTheme = () => {
     themeCurrent ? setTheme(themes.dark) : setTheme(themes.light);
+    setOpen(!open);
   };
   const handleLeng = () => {
     knowme === "Conóceme" ? setLeng(Leng.EN) : setLeng(Leng.ES);
+    setOpen(!open);
   };
 
   return (
@@ -26,7 +37,6 @@ export const Menu = ({ setTheme, setLeng, leng, themeCurrent }) => {
         <>
           <nav className="menu-horizontal">
             <ul>
-              <li className="disable">{login}</li>
               <li>
                 <Link href="/knowme">
                   <a>{knowme}</a>

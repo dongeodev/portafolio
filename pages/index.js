@@ -6,6 +6,7 @@ import { Footer } from "components/Footer";
 
 import SEO from "components/Seo";
 import { seo } from "components/Seo/data";
+
 export default function Home() {
   return (
     <>

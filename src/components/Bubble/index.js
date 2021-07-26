@@ -1,20 +1,12 @@
-import React from "react";
-
-export const Bubble = ({ color, symbol, label, id, handleCardReview }) => {
-  const handleClick = (e) => {
-    handleCardReview(e.target.id);
+export const Bubble = ({ color, data, showCardReview }) => {
+  const handleClick = () => {
+    showCardReview(data);
   };
   return (
     <>
-      <div role="button" onClick={handleClick} id={id}>
-        <span
-          className="emoji"
-          role="img"
-          aria-label={label ? label : ""}
-          aria-hidden={label ? "false" : "true"}
-          id={id}
-        >
-          {symbol}
+      <div role="button" onClick={handleClick}>
+        <span className="emoji" role="img">
+          {data.type === "good" ? "😎" : "🤬"}
         </span>
       </div>
       <style jsx>{`
@@ -23,8 +15,8 @@ export const Bubble = ({ color, symbol, label, id, handleCardReview }) => {
           justify-content: center;
           align-items: center;
           z-index: 1;
-          width: 28px;
-          height: 30px;
+          width: 38px;
+          height: 40px;
           border-radius: 4px;
           background: ${color} no-repeat;
           cursor: pointer;
@@ -41,6 +33,12 @@ export const Bubble = ({ color, symbol, label, id, handleCardReview }) => {
           border-bottom: 0;
           margin-left: -5px;
           margin-bottom: -6px;
+        }
+        div:hover {
+          border: 2px solid #fd3a69;
+        }
+        span {
+          font-size: 1.6rem;
         }
       `}</style>
     </>

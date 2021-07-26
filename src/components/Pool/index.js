@@ -3,7 +3,7 @@ import { useContext } from "react";
 import ThemeContext from "ThemeContext";
 import { Title } from "components/Title";
 import LengContext from "LengContext";
-export const Pool = ({ handleCardReview }) => {
+export const Pool = ({ showCardReview, reviews }) => {
   const { leng } = useContext(LengContext);
   const { pool } = leng;
   const { theme, setTheme } = useContext(ThemeContext);
@@ -12,37 +12,19 @@ export const Pool = ({ handleCardReview }) => {
   return (
     <>
       <div className="container__title-skills">
-        <Title text={pool} />
+        <Title text={pool.title} />
       </div>
       <div className="container-pool">
         <div className="waves">
-          <div className="bubble-review bubble">
-            <Bubble
-              color={colors.sun}
-              label="smile face"
-              symbol="😎"
-              handleCardReview={handleCardReview}
-              id="gr1"
-            />
-          </div>
-          <div className="bubble-review bubble">
-            <Bubble
-              color={colors.rose}
-              label="angry face"
-              symbol="🤬"
-              handleCardReview={handleCardReview}
-              id="br1"
-            />
-          </div>
-          <div className="bubble-review bubble">
-            <Bubble
-              color={colors.sun}
-              label="smile face"
-              symbol="😎"
-              handleCardReview={handleCardReview}
-              id="gr2"
-            />
-          </div>
+          {reviews.map((bubble) => (
+            <div className="bubble-review bubble" key={bubble.id}>
+              <Bubble
+                color={bubble.type === "good" ? colors.sun : colors.rose}
+                data={bubble}
+                showCardReview={showCardReview}
+              />
+            </div>
+          ))}
 
           <div className="wave a"></div>
           <div className="wave b"></div>

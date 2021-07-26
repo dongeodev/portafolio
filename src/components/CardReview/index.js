@@ -1,7 +1,5 @@
-import { useContext } from "react";
-
-import LengContext from "LengContext";
 import Avatar from "components/Avatar";
+import CloseButton from "components/CloseButton";
 
 export const CardReview = ({
   userName,
@@ -12,15 +10,19 @@ export const CardReview = ({
   type,
   createAt,
   colors,
+  handleCloseCard,
+  hiddeCloseButton,
 }) => {
-  const { leng } = useContext(LengContext);
-  // const { pool } = leng;
-
   return (
     <>
       <article>
+        {!hiddeCloseButton && (
+          <div className="container--button__close">
+            <CloseButton color={colors.grape} onClick={handleCloseCard} />
+          </div>
+        )}
         <Avatar userName={userName} img={avatar} colors={colors} />
-        <div>
+        <div className="container--text">
           <h3>{userName}</h3>
           <span>{createAt}</span>
           <p>{content}</p>
@@ -28,6 +30,7 @@ export const CardReview = ({
       </article>
       <style jsx>{`
         article {
+          position: relative;
           display: flex;
           width: 300px;
           min-height: 45px;
@@ -38,7 +41,12 @@ export const CardReview = ({
           background: ${type === "good" ? colors.sun : colors.rose};
           margin: 0 auto;
         }
-        div {
+        .container--button__close {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+        }
+        .container--text {
           margin-left: 8px;
         }
         h3 {
@@ -47,7 +55,7 @@ export const CardReview = ({
           margin-bottom: 4px;
           font-size: 1.5rem;
           font-weight: 600;
-          color: ${type === "good" ? colors.blue : colors.white};
+          color: ${type === "good" ? colors.grape : colors.white};
         }
         span {
           font-size: 1.2rem;
@@ -58,7 +66,7 @@ export const CardReview = ({
         p {
           max-width: 100%;
           font-size: 1.4rem;
-          color: ${colors.blue};
+          color: ${type === "good" ? colors.grape : colors.white};
         }
         @media (min-width: 768px) {
           article {

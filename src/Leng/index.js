@@ -27,7 +27,7 @@ export const Leng = {
     },
     skills: "Skills",
     projects: "Projects",
-    pool: "Pool Review",
+    pool: { title: "Pool Review", lang: "en" },
     form: {
       hi: "Hello",
       title: "If you know my work give me a review",
@@ -87,7 +87,7 @@ export const Leng = {
     },
     skills: "Habilidades",
     projects: "Proyectos",
-    pool: "Piscina de Calificaciones",
+    pool: { title: "Piscina de Calificaciones", lang: "es" },
     form: {
       hi: "Hola",
       title: "Si conoces mi trabajo dame una Calificacion",

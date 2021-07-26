@@ -4,9 +4,13 @@ import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import ThemeContext from "ThemeContext";
 import LengContext from "LengContext";
-import { addReview, loginWithGitHub } from "../../../firebase/client";
+import {
+  addReview,
+  loginWithGitHub,
+  loginWithGoogle,
+} from "../../../firebase/client";
 
-export const FormReview = ({ user }) => {
+export const FormReview = ({ user, setRated }) => {
   const COMPOSE_STATES = {
     USER_NOT_KNOWN: 0,
     LOADING: 1,
@@ -40,11 +44,21 @@ export const FormReview = ({ user }) => {
       type: type,
     })
       .then(setStatus(COMPOSE_STATES.SUCCESS))
+      .then(setRated(true))
       .catch((err) => console.log(err));
   };
 
-  const handleClick = () => {
+  const handleGithubLogin = () => {
     loginWithGitHub()
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const handleGoogleLogin = () => {
+    loginWithGoogle()
       .then((user) => {
         console.log(user);
       })
@@ -90,12 +104,12 @@ export const FormReview = ({ user }) => {
         ) : (
           <div className="container--buttons">
             <SMButton
-              handleClick={handleClick}
+              handleClick={handleGoogleLogin}
               text={form.googleButton}
               img={"/ic_gmail.svg"}
             />
             <SMButton
-              handleClick={handleClick}
+              handleClick={handleGithubLogin}
               text={form.gitHubButton}
               img={"/ic_github.svg"}
               background="#000"

@@ -6,10 +6,7 @@ import { CardReview } from "components/CardReview";
 import { FormReview } from "components/FormReview";
 import { Pool } from "components/Pool";
 import useNearScreen from "Hooks/useNearScreen";
-import {
-  fetchLatestReviews,
-  onAuthStateChanged,
-} from "../../../firebase/client";
+import { fetchLatestReviews, onAuthStateChanged } from "firebase/client";
 import Spinner from "components/Spinner";
 import useTimeAgo from "Hooks/useTimeAgo";
 

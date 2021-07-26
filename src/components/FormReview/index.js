@@ -4,11 +4,7 @@ import { useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import ThemeContext from "ThemeContext";
 import LengContext from "LengContext";
-import {
-  addReview,
-  loginWithGitHub,
-  loginWithGoogle,
-} from "../../../firebase/client";
+import { addReview, loginWithGitHub, loginWithGoogle } from "firebase/client";
 
 export const FormReview = ({ user, setRated }) => {
   const COMPOSE_STATES = {

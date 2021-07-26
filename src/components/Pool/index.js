@@ -3,6 +3,7 @@ import { useContext } from "react";
 import ThemeContext from "ThemeContext";
 import { Title } from "components/Title";
 import LengContext from "LengContext";
+
 export const Pool = ({ showCardReview, reviews }) => {
   const { leng } = useContext(LengContext);
   const { pool } = leng;
@@ -14,21 +15,27 @@ export const Pool = ({ showCardReview, reviews }) => {
       <div className="container__title-skills">
         <Title text={pool.title} />
       </div>
-      <div className="container-pool">
-        <div className="waves">
-          {reviews.map((bubble) => (
-            <div className="bubble-review bubble" key={bubble.id}>
-              <Bubble
-                color={bubble.type === "good" ? colors.sun : colors.rose}
-                data={bubble}
-                showCardReview={showCardReview}
-              />
-            </div>
-          ))}
+      <div className="container-beach">
+        <div className="container-crab">
+          <img src="/crab.svg" alt="pet" />
+        </div>
+        <div className="container-pool">
+          <p className="hello">{pool.hello}</p>
+          <div className="waves">
+            {reviews.map((bubble) => (
+              <div className="bubble-review bubble" key={bubble.id}>
+                <Bubble
+                  color={bubble.type === "good" ? colors.sun : colors.rose}
+                  data={bubble}
+                  showCardReview={showCardReview}
+                />
+              </div>
+            ))}
 
-          <div className="wave a"></div>
-          <div className="wave b"></div>
-          <div className="wave c"></div>
+            <div className="wave a"></div>
+            <div className="wave b"></div>
+            <div className="wave c"></div>
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -49,6 +56,31 @@ export const Pool = ({ showCardReview, reviews }) => {
           background-position: center;
           overflow: hidden;
           margin: 0 auto 15px auto;
+        }
+        .container-beach {
+          position: relative;
+        }
+        .container-crab {
+          position: absolute;
+          top: -37px;
+          left: calc(50% - 158px);
+          opacity: 0;
+          animation: 1s goUp ease-in-out forwards;
+          animation-delay: 3s;
+        }
+        p {
+          position: absolute;
+          top: 10px;
+          left: calc(50% - 110px);
+          font-size: 1.2rem;
+          color: ${colors.blue};
+          opacity: 0;
+          animation: 1s flick forwards;
+          animation-delay: 4s;
+        }
+
+        .container-crab img {
+          width: 75px;
         }
         .waves {
           position: absolute;
@@ -145,6 +177,27 @@ export const Pool = ({ showCardReview, reviews }) => {
             transform: translate(80px, -40px);
           }
         }
+        @keyframes flick {
+          0% {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        @keyframes goUp {
+          0% {
+            transform: translateY(90px);
+          }
+
+          100% {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+        }
         @media (min-width: 768px) {
           .container__title-skills {
             padding-right: 50px;
@@ -155,6 +208,17 @@ export const Pool = ({ showCardReview, reviews }) => {
             width: 868px;
             background-image: url(${colors.seaMedium});
             margin: 0 auto 15px auto;
+          }
+          .container-crab {
+            top: -56px;
+            left: calc(50% - 220px);
+          }
+          p {
+            left: calc(50% - 130px);
+            font-size: 1.6rem;
+          }
+          .container-crab img {
+            width: 120px;
           }
           .waves {
             height: 350px;
@@ -168,6 +232,14 @@ export const Pool = ({ showCardReview, reviews }) => {
             max-width: 1105px;
             padding: 0;
             margin: 0 auto 30px auto;
+          }
+          .container-crab {
+            top: -56px;
+            left: calc(50% - 500px);
+          }
+          p {
+            left: calc(50% - 400px);
+            font-size: 1.8rem;
           }
           .container-pool {
             height: 481px;

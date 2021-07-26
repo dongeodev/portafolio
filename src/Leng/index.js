@@ -1,3 +1,5 @@
+const date = new Date();
+const year = date.getFullYear();
 export const Leng = {
   EN: {
     header: {
@@ -27,11 +29,13 @@ export const Leng = {
     },
     skills: "Skills",
     projects: "Projects",
-    pool: { title: "Pool Review", lang: "en" },
+    pool: { title: "Pool Review", lang: "en", hello: "Hey! Choose one" },
     form: {
       hi: "Hello",
       title: "If you know my work give me a review",
       swing: "Go Swing",
+      required: "Hey, write something here!",
+      minLength: "Come on! Give me more",
       googleButton: "Login with Google",
       gitHubButton: "Login with GitHub",
     },
@@ -43,7 +47,7 @@ export const Leng = {
       social: "Social Media",
       verse:
         "Commit your way to the Lord, Trust also in Him, And He shall bring it to pass.",
-      right: "@2021 DonGeo. Copy right.",
+      right: `@${year} donGeo. Copy right.`,
     },
     heroAboutMe: {
       title: "About me",
@@ -87,11 +91,17 @@ export const Leng = {
     },
     skills: "Habilidades",
     projects: "Proyectos",
-    pool: { title: "Piscina de Calificaciones", lang: "es" },
+    pool: {
+      title: "Piscina de Calificaciones",
+      lang: "es",
+      hello: "Hey! Elige una",
+    },
     form: {
       hi: "Hola",
-      title: "Si conoces mi trabajo dame una Calificacion",
+      title: "Si conoces mi trabajo dame una Calificación",
       swing: "A Nadar",
+      required: "Hey, escribe algo",
+      minLength: "Vamos! Dame más",
       googleButton: "Iniciar sesion con Google",
       gitHubButton: "Iniciar sesion con GitHub",
     },
@@ -101,8 +111,8 @@ export const Leng = {
       dowdloadCV: "Descarga CV",
       study: "Estudia en Platzi",
       social: "Redes Sociales",
-      verse: "Encomienda a Jehová tu camino, Y confía en él; y él hará.",
-      right: "@2020 DonGeo. Derechos Reservados.",
+      verse: "Encomienda a Dios tu camino, Y confía en él; y él hará.",
+      right: `@${year} donGeo. Derechos Reservados.`,
     },
     heroAboutMe: {
       title: "Acerca de mí",

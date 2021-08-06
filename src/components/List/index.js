@@ -11,6 +11,16 @@ export const List = () => {
   const { projects } = leng;
   const data = [
     {
+      id: "rodapartes",
+      img: "/rodapartes.png",
+      link: "https://rodapartes-bs4lr308v-dongeodev.vercel.app/",
+    },
+    {
+      id: "landing",
+      img: "/landing.png",
+      link: "https://landinglayout.vercel.app/",
+    },
+    {
       id: "daymercell",
       img: "/daymercell.png",
       link: "https://daymercell.netlify.app/",
@@ -39,11 +49,6 @@ export const List = () => {
       id: "oldPortafolio",
       img: "/old-portafolio.png",
       link: "https://dongeodev.github.io/portfolio/",
-    },
-    {
-      id: "ractvideo",
-      img: "/reactvideo.png",
-      link: "https://dongeodev.github.io/Reactvideo/",
     },
   ];
   const element = useRef();

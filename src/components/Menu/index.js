@@ -37,11 +37,6 @@ export const Menu = ({ setTheme, setLeng, leng, themeCurrent }) => {
         <>
           <nav className="menu-horizontal">
             <ul>
-              <li>
-                <Link href="/knowme">
-                  <a>{knowme}</a>
-                </Link>
-              </li>
               <li className="disable">Blog</li>
             </ul>
           </nav>

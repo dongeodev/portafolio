@@ -3,29 +3,29 @@ const DAY_UNITS = [
   ["hour", 3600],
   ["minute", 60],
   ["second", 1],
-];
+]
 const getDateDiff = (timestamp) => {
-  const now = Date.now();
-  const elapsed = (timestamp - now) / 1000;
+  const now = Date.now()
+  const elapsed = (timestamp - now) / 1000
 
   for (const [unit, secondsInUnit] of DAY_UNITS) {
     if (Math.abs(elapsed) > secondsInUnit || unit == "second") {
-      const value = Math.floor(elapsed / secondsInUnit);
-      return { value, unit };
+      const value = Math.floor(elapsed / secondsInUnit)
+      return { value, unit }
     }
   }
-};
+}
 
 export default function useTimeAgo(timestamp, lang) {
-  const { value, unit } = getDateDiff(timestamp);
+  const { value, unit } = getDateDiff(timestamp)
 
   const rtf = new Intl.RelativeTimeFormat(lang, {
     style: "short",
-  });
+  })
 
-  if (unit == "day" && value > 30) {
-    const normalizedCreatedAt = new Intl.DateTimeFormat(lang).format(timestamp);
-    return normalizedCreatedAt;
+  if (unit == "day" && Math.abs(value) > 30) {
+    const normalizedCreatedAt = new Intl.DateTimeFormat(lang).format(timestamp)
+    return normalizedCreatedAt
   }
-  return rtf.format(value, unit);
+  return rtf.format(value, unit)
 }
